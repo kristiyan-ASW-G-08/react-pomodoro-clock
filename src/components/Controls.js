@@ -10,13 +10,16 @@ import {
 library.add(faPlus, faMinus, faPlay, faPause);
 const Controls = ({ isPausedHandler, isPaused, resetHandler }) => {
   return (
-    <div className="Controls">
-      <button onClick={isPausedHandler} id="start_stop">
-        <FontAwesomeIcon icon={isPaused ? 'play' : 'pause'} />;
-      </button>
-      <button onClick={() => resetHandler()} id="reset">
-        Reset
-      </button>
+    <div className="controls">
+      <div className="buttons-container">
+        <button className="button" onClick={isPausedHandler} id="start_stop">
+          {isPaused ? 'play' : 'pause'}
+          {/* <FontAwesomeIcon icon={isPaused ? 'play' : 'pause'} />; */}
+        </button>
+        <button className="button" onClick={() => resetHandler()} id="reset">
+          reset
+        </button>
+      </div>
     </div>
   );
 };

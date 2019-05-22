@@ -17,17 +17,45 @@ $light: white;
   align-content: center;
 }
 .App {
+  height: 100vh;
+  width: 100vw;
   @include center;
+  color: $dark;
+  @include large-screen {
+    background: $primary;
+  }
 }
 
 .main-container {
   @include center;
   height: 90vh;
   grid-gap: 0.5rem;
+  @include large-screen {
+    background: $light;
+    height: 70vh;
+    width: 20vw;
+  }
 }
 
 .progress-container {
   height: 10rem;
   width: 10rem;
   @include center;
+}
+
+.controls {
+  @include center;
+  .buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+}
+
+.button {
+  padding: 0.4rem 1rem 0.4rem 1rem;
+  border: none;
+  background: $primary;
+  color: $light;
+  font-size: 1rem;
 }

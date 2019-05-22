@@ -19,15 +19,17 @@ const LengthControls = ({
   incrementId
 }) => {
   return (
-    <div className="Controls">
+    <div className="controls">
       <h1 id={labelId}>{displayType}</h1>
       <h1 id={lengthId}>{length}</h1>
-      <button id={incrementId} onClick={incrementHandler}>
+      <div className="buttons-container">
+      <button className="button" id={incrementId} onClick={incrementHandler}>
         <FontAwesomeIcon icon="plus" />
       </button>
-      <button id={decrementId} onClick={decrementHandler}>
+      <button className="button" id={decrementId} onClick={decrementHandler}>
         <FontAwesomeIcon icon="minus" />
       </button>
+      </div>
     </div>
   );
 };
