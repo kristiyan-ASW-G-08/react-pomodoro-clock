@@ -1,0 +1,33 @@
+$dark: #212121;
+$primary: rgb(245, 86, 75);
+$light: white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@mixin large-screen() {
+  @media only screen and (min-width: 1300px) {
+    @content;
+  }
+}
+@mixin center {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
+.App {
+  @include center;
+}
+
+.main-container {
+  @include center;
+  height: 90vh;
+  grid-gap: 0.5rem;
+}
+
+.progress-container {
+  height: 10rem;
+  width: 10rem;
+  @include center;
+}

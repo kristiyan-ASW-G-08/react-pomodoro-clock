@@ -2,10 +2,9 @@ import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import LengthControls from './components/LengthControls';
 import Display from './components/Display';
 import Controls from './components/Controls';
-import accurateInterval from 'accurate-interval';
 import useInterval from './useInterval';
-import './App.css';
-
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import './App.scss';
 function App() {
   const [sessionLength, setSessionLength] = useState(25);
   const [breakLength, setBreakLength] = useState(5);
@@ -77,43 +76,48 @@ function App() {
   };
   return (
     <div className="App">
-      <Display
-        seconds={count}
-        displayType={displayType}
-        switchTimer={switchCount}
-      />
-      <Controls
-        isPausedHandler={pauseHandler}
-        isPaused={isPaused}
-        resetHandler={resetHandler}
-        seconds={count}
-      />
-      <LengthControls
-        displayType={'Session'}
-        incrementHandler={incrementSessionHander}
-        decrementHandler={decrementSessionHandler}
-        length={sessionLength}
-        labelId={'session-label'}
-        lengthId={'session-length'}
-        incrementId={'session-increment'}
-        decrementId={'session-decrement'}
-      />
-      <LengthControls
-        displayType={'Break'}
-        incrementHandler={incrementBreakHandler}
-        decrementHandler={decrementBreakHandler}
-        labelId={'break-label'}
-        length={breakLength}
-        lengthId={'break-length'}
-        incrementId={'break-increment'}
-        decrementId={'break-decrement'}
-      />
-      <audio
-        id="beep"
-        preload="auto"
-        src="https://goo.gl/65cBl1"
-        ref={audioRef}
-      />
+      <main className="main-container">
+        <Display
+          count={count}
+          sessionLength={sessionLength}
+          breakLength={breakLength}
+          seconds={count}
+          displayType={displayType}
+          switchTimer={switchCount}
+        />
+        <Controls
+          isPausedHandler={pauseHandler}
+          isPaused={isPaused}
+          resetHandler={resetHandler}
+          seconds={count}
+        />
+        <LengthControls
+          displayType={'Session'}
+          incrementHandler={incrementSessionHander}
+          decrementHandler={decrementSessionHandler}
+          length={sessionLength}
+          labelId={'session-label'}
+          lengthId={'session-length'}
+          incrementId={'session-increment'}
+          decrementId={'session-decrement'}
+        />
+        <LengthControls
+          displayType={'Break'}
+          incrementHandler={incrementBreakHandler}
+          decrementHandler={decrementBreakHandler}
+          labelId={'break-label'}
+          length={breakLength}
+          lengthId={'break-length'}
+          incrementId={'break-increment'}
+          decrementId={'break-decrement'}
+        />
+        <audio
+          id="beep"
+          preload="auto"
+          src="https://goo.gl/65cBl1"
+          ref={audioRef}
+        />
+      </main>
     </div>
   );
 }
